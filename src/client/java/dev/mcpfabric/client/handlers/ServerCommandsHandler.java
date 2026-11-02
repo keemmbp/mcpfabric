@@ -37,13 +37,28 @@ public final class ServerCommandsHandler {
 		}));
 	}
 
-	/** The client's connection object, via LocalPlayer.connection. */
+	/** The client's connection object: LocalPlayer.connection() method or the `connection` field. */
 	private static Object connection() throws RpcException {
+		Object player = ClientMc.player();
 		try {
-			return ClientMc.player().getClass().getMethod("connection").invoke(ClientMc.player());
-		} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-			throw new RpcException("server_commands_failed", "cannot reach the client connection: " + e);
+			return player.getClass().getMethod("connection").invoke(player);
+		} catch (NoSuchMethodException ignored) {
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			throw new RpcException("server_commands_failed", "connection() call failed: " + e);
 		}
+		for (Class<?> c = player.getClass(); c != null && c != Object.class; c = c.getSuperclass()) {
+			for (Field f : c.getDeclaredFields()) {
+				if (f.getName().equals("connection") || f.getType().getSimpleName().endsWith("PacketListener")) {
+					f.setAccessible(true);
+					try {
+						Object conn = f.get(player);
+						if (conn != null) return conn;
+					} catch (IllegalAccessException ignored) {
+					}
+				}
+			}
+		}
+		throw new RpcException("server_commands_failed", "no connection field on the local player.");
 	}
 
 	/**
