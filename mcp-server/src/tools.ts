@@ -648,6 +648,17 @@ export const TOOLS: ToolDef[] = [
     },
     annotations: READ,
   },
+  {
+    name: "server_commands",
+    method: "server.commands",
+    title: "List server commands",
+    description:
+      "Client-only. Enumerate the command tree the connected server synced to this client for tab-completion: every command with its subcommands and argument names. Read-only recon of data the client already holds.",
+    inputSchema: {
+      maxNodes: z.number().int().min(1).max(600).optional().default(600).describe("Cap on tree nodes returned."),
+    },
+    annotations: READ,
+  },
 
   // ===== session / menus (client) ============================================================
   {

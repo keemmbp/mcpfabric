@@ -90,6 +90,7 @@ const BRIDGE_TOOLS = {
   run_baritone_command: { method: "baritone.run", args: { command: "goto 100 64 200" }, invalid: { command: "" } },
   run_lb_command: { method: "lb.command", args: { command: "-t xray on" }, invalid: { command: "" } },
   query_lb: { method: "lb.query", args: { what: "modules" }, invalid: { what: "everything" } },
+  server_commands: { method: "server.commands", args: { maxNodes: 100 }, invalid: { maxNodes: 9999 } },
   // session and menus
   get_screen: { method: "screen.get", args: {} },
   close_screen: { method: "screen.close", args: {} },

@@ -267,7 +267,7 @@ Then set `MCPFABRIC_TOKEN` in the server's environment.
 **interact (client)** — `break_block`, `place_block`, `use_item`, `attack_entity`, `use_entity`, `drop_held_item`
 **inventory (client)** — `select_hotbar_slot`, `drop_slot`, `swap_slots`
 **vision (client)** — `screenshot` (PNG for vision models), `describe_scene`
-**navigation (client)** — `navigate_to` (A\*), `navigation_status`, `stop_navigation`, `run_baritone_command` (Baritone API, optional), `run_lb_command` (LiquidBounce commands, optional), `query_lb` (commands/modules/settings, optional)
+**navigation (client)** — `navigate_to` (A\*), `navigation_status`, `stop_navigation`, `run_baritone_command` (Baritone API, optional), `run_lb_command` (LiquidBounce commands, optional), `query_lb` (commands/modules/settings, optional), `server_commands` (server-synced command tree)
 **session (client)** — `get_screen`, `close_screen` (pause menu, chat, container; respawns on the death screen), `list_worlds`, `join_world` (rejoin after a kick, a server restart or a game restart)
 **ui (client, off by default: `enableUiControl`)** — `get_ui` (widgets of the open screen), `click_widget`, `set_text_field`
 **supervised (off by default: `enableSupervisedControl`)** ([docs/SUPERVISED.md](docs/SUPERVISED.md)) — `supervised_status`, `supervised_stop`, `supervised_input` (one key for up to 10 ticks), `supervised_read_block`, `supervised_set_block` (with a precondition), `supervised_command` (allowlisted roots), `supervised_enter_world` / `supervised_leave_world` (approved saves), `supervised_reconcile`
