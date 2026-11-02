@@ -625,6 +625,17 @@ export const TOOLS: ToolDef[] = [
     },
     annotations: WRITE,
   },
+  {
+    name: "run_lb_command",
+    method: "lb.command",
+    title: "Run a LiquidBounce command",
+    description:
+      "Client-only. Execute a LiquidBounce client command through its command manager (e.g. \"-t xray on\", \"-t autotool off\", \"-bind\"). Bypasses the chat screen, so it works even though typed-in-chat processing does not see injected messages. Include the leading \"-\" exactly as typed in chat. Requires LiquidBounce in the mods folder and enablePlayerControl.",
+    inputSchema: {
+      command: z.string().min(1).describe('LiquidBounce command including the "-" prefix, e.g. "-t xray on".'),
+    },
+    annotations: WRITE,
+  },
 
   // ===== session / menus (client) ============================================================
   {

@@ -88,6 +88,7 @@ const BRIDGE_TOOLS = {
   navigation_status: { method: "nav.status", args: {} },
   stop_navigation: { method: "nav.stop", args: {} },
   run_baritone_command: { method: "baritone.run", args: { command: "goto 100 64 200" }, invalid: { command: "" } },
+  run_lb_command: { method: "lb.command", args: { command: "-t xray on" }, invalid: { command: "" } },
   // session and menus
   get_screen: { method: "screen.get", args: {} },
   close_screen: { method: "screen.close", args: {} },
