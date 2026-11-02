@@ -636,6 +636,18 @@ export const TOOLS: ToolDef[] = [
     },
     annotations: WRITE,
   },
+  {
+    name: "query_lb",
+    method: "lb.query",
+    title: "Query LiquidBounce state",
+    description:
+      "Client-only. Read LiquidBounce's live state: the command catalog (what=commands), every module with its enabled flag (what=modules), or one module's settings with values (what=settings + module). Reads go through the module registry, so they reflect the running client rather than the on-disk config. Requires LiquidBounce in the mods folder and enablePlayerControl.",
+    inputSchema: {
+      what: z.enum(["commands", "modules", "settings"]).optional().default("modules"),
+      module: z.string().optional().describe("Module name for what=settings (case-insensitive)."),
+    },
+    annotations: READ,
+  },
 
   // ===== session / menus (client) ============================================================
   {

@@ -10,6 +10,7 @@ All notable changes to this project are documented here. The format is based on
 
 - `run_baritone_command` client tool (`baritone.run`): executes Baritone commands through the Baritone API via reflection, bypassing chat-command interception; requires Baritone in the mods folder and `enablePlayerControl`.
 - `run_lb_command` client tool (`lb.command`): executes LiquidBounce commands through the client's command manager via reflection, bypassing chat-screen processing; requires LiquidBounce in the mods folder and `enablePlayerControl`.
+- `query_lb` client tool (`lb.query`): reads LiquidBounce's command catalog, module states and per-module settings live from the running client via reflection.
 
 ## [0.8.0] - 2026-10-16
 
