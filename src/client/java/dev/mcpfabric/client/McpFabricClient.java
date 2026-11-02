@@ -2,6 +2,7 @@ package dev.mcpfabric.client;
 
 import dev.mcpfabric.McpFabric;
 import dev.mcpfabric.bridge.RpcRouter;
+import dev.mcpfabric.client.handlers.BaritoneHandlers;
 import dev.mcpfabric.client.handlers.ClientChatHandlers;
 import dev.mcpfabric.client.handlers.ContainerHandlers;
 import dev.mcpfabric.client.handlers.ControlHandlers;
@@ -44,6 +45,7 @@ public final class McpFabricClient {
 		ContainerHandlers.register(router);
 		RecipeHandlers.register(router);
 		ClientChatHandlers.register(router); // client variant of chat.send (speaks as local player)
+		BaritoneHandlers.register(router); // optional: Baritone API via reflection, behind enablePlayerControl
 		SessionScreenHandlers.register(router); // menus: rejoin a world after a disconnect or a restart
 		UiHandlers.register(router); // generic screen control, behind enableUiControl
 		SupervisedClientHandlers.register(router); // supervised input and approved saves, behind enableSupervisedControl
