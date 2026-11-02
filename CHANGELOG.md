@@ -6,6 +6,10 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+### Added
+
+- `run_baritone_command` client tool (`baritone.run`): executes Baritone commands through the Baritone API via reflection, bypassing chat-command interception; requires Baritone in the mods folder and `enablePlayerControl`.
+
 ## [0.8.0] - 2026-10-16
 
 Fabric and NeoForge. Implements #27, thanks to @faizsaifulnizam.

@@ -614,6 +614,17 @@ export const TOOLS: ToolDef[] = [
     inputSchema: {},
     annotations: STEER,
   },
+  {
+    name: "run_baritone_command",
+    method: "baritone.run",
+    title: "Run a Baritone command",
+    description:
+      "Client-only. Execute a Baritone command through the Baritone API when Baritone is installed (e.g. \"goto 100 64 200\", \"mine diamond_ore\", \"stop\", \"farm\"). Bypasses chat-command interception, which does not fire when other client mods replace the network handler. Returns immediately; Baritone's chat output may not reach chat history, so verify progress via player state. Requires Baritone in the mods folder and enablePlayerControl.",
+    inputSchema: {
+      command: z.string().min(1).describe('Baritone command without the "#" or "/b" prefix, e.g. "goto 100 64 200".'),
+    },
+    annotations: WRITE,
+  },
 
   // ===== session / menus (client) ============================================================
   {

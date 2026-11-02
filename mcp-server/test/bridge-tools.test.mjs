@@ -87,6 +87,7 @@ const BRIDGE_TOOLS = {
   navigate_to: { method: "nav.pathTo", args: { ...pos, sprint: true }, invalid: { ...pos, reachRadius: 17 } },
   navigation_status: { method: "nav.status", args: {} },
   stop_navigation: { method: "nav.stop", args: {} },
+  run_baritone_command: { method: "baritone.run", args: { command: "goto 100 64 200" }, invalid: { command: "" } },
   // session and menus
   get_screen: { method: "screen.get", args: {} },
   close_screen: { method: "screen.close", args: {} },
